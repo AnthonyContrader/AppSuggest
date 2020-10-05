@@ -1,1 +1,2 @@
-# AppSuggest
+# SAMPLE
+Sample Projects
