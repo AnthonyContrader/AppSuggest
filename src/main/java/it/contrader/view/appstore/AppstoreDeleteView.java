@@ -46,5 +46,5 @@ public class AppstoreDeleteView extends AbstractView {
 		MainDispatcher.getInstance().callAction("Appstore", "doControl", request);
 	}
 
-
+//test
 }
