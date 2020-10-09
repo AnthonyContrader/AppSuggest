@@ -3,6 +3,7 @@ package it.contrader.controller;
 import java.util.List;
 
 import it.contrader.dto.AppDTO;
+import it.contrader.dto.UserDTO;
 import it.contrader.main.MainDispatcher;
 import it.contrader.service.AppService;
 
@@ -17,7 +18,7 @@ public class AppstoreController implements Controller {
 	/**
 	 * definisce il pacchetto di vista appstore
 	 */
-	private static String sub_package = "app.";
+	private static String sub_package = "appstore.";
 	
 	private AppService appService;
 	/**
@@ -47,7 +48,19 @@ public class AppstoreController implements Controller {
 		// Arriva qui dalla UserReadView. Invoca il Service con il parametro id e invia alla UserReadView uno user da mostrare 
 		
 		// Arriva qui dalla UserInsertView. Estrae i parametri da inserire e chiama il service per inserire uno user con questi parametri
-		
+		case "INSERT":
+			appname = request.get("appname").toString();
+			apptype = request.get("apptype").toString();
+			
+			//costruisce l'oggetto user da inserire
+			AppDTO apptoinsert = new AppDTO(appname, apptype);
+			//invoca il service
+			appService.insert(apptoinsert);
+			request = new Request();
+			request.put("mode", "mode");
+			//Rimanda alla view con la risposta
+			MainDispatcher.getInstance().callView(sub_package + "AppstoreInsert", request);
+			break;
 		// Arriva qui dalla UserDeleteView. Estrae l'id dell'utente da cancellare e lo passa al Service
 		
 		// Arriva qui dalla UserUpdateView
@@ -72,7 +85,7 @@ public class AppstoreController implements Controller {
 				break;
 				
 			case "I":
-				MainDispatcher.getInstance().callView(sub_package + "UserInsert", null);
+				MainDispatcher.getInstance().callView(sub_package + "AppstoreInsert", null);
 				break;
 				
 			case "M":

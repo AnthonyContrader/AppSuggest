@@ -63,7 +63,7 @@ public class AppstoreView extends AbstractView {
 		request = new Request();
 		request.put("choice", choice);
 		request.put("mode", "GETCHOICE");
-		MainDispatcher.getInstance().callAction("User", "doControl", this.request);
+		MainDispatcher.getInstance().callAction("Appstore", "doControl", this.request);
 	}
 
 }
