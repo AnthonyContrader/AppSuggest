@@ -3,7 +3,6 @@ package it.contrader.controller;
 import java.util.List;
 
 import it.contrader.dto.AppDTO;
-import it.contrader.dto.UserDTO;
 import it.contrader.main.MainDispatcher;
 import it.contrader.service.AppService;
 
@@ -74,6 +73,17 @@ public class AppstoreController implements Controller {
 			
 			
 			// Arriva qui dalla UserUpdateView
+		case "UPDATE":
+			id = Integer.parseInt(request.get("id").toString());
+			appname = request.get("appname").toString();
+			apptype = request.get("apptype").toString();
+			AppDTO apptoupdate = new AppDTO(appname, apptype);
+			apptoupdate.setId(id);
+			appService.update(apptoupdate);
+			request = new Request();
+			request.put("mode", "mode");
+			MainDispatcher.getInstance().callView(sub_package + "AppstoreUpdate", request);
+			break;
 			
 		//Arriva qui dalla UserView Invoca il Service e invia alla UserView il risultato da mostrare 
 		case "APPLIST":
@@ -99,7 +109,7 @@ public class AppstoreController implements Controller {
 				break;
 				
 			case "M":
-				MainDispatcher.getInstance().callView(sub_package + "UserUpdate", null);
+				MainDispatcher.getInstance().callView(sub_package + "AppstoreUpdate", null);
 				break;
 				
 			case "C":

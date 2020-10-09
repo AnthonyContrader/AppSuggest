@@ -96,9 +96,9 @@ public class AppDAO {
 
 				// Update the user
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
-				preparedStatement.setString(1, appToUpdate.getAppname());
-				preparedStatement.setString(2, appToUpdate.getApptype());
-				preparedStatement.setInt(4, appToUpdate.getId());
+				preparedStatement.setString(2, appToUpdate.getAppname());
+				preparedStatement.setString(3, appToUpdate.getApptype());
+				preparedStatement.setInt(1, appToUpdate.getId());
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)
 					return true;
