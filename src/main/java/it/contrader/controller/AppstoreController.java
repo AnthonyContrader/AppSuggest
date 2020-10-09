@@ -63,7 +63,17 @@ public class AppstoreController implements Controller {
 			break;
 		// Arriva qui dalla UserDeleteView. Estrae l'id dell'utente da cancellare e lo passa al Service
 		
-		// Arriva qui dalla UserUpdateView
+		case "DELETE":
+			id = Integer.parseInt(request.get("id").toString());
+			//Qui chiama il service
+			appService.delete(id);
+			request = new Request();
+			request.put("mode", "mode");
+			MainDispatcher.getInstance().callView(sub_package + "AppstoreDelete", request);
+			break;
+			
+			
+			// Arriva qui dalla UserUpdateView
 			
 		//Arriva qui dalla UserView Invoca il Service e invia alla UserView il risultato da mostrare 
 		case "APPLIST":
@@ -93,7 +103,7 @@ public class AppstoreController implements Controller {
 				break;
 				
 			case "C":
-				MainDispatcher.getInstance().callView(sub_package + "UserDelete", null);
+				MainDispatcher.getInstance().callView(sub_package + "AppstoreDelete", null);
 				break;
 				
 			case "E":
