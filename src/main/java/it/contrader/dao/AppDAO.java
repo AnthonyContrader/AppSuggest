@@ -26,7 +26,7 @@ public class AppDAO implements DAO<App> {
 	}
 
 	public List<App> getAll() {
-		List<App> appsList = new ArrayList<>();
+		List<App> appList = new ArrayList<>();
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			Statement statement = connection.createStatement();
@@ -38,7 +38,7 @@ public class AppDAO implements DAO<App> {
 				String apptype = resultSet.getString("apptype");
 				app = new App(appname, apptype);
 				app.setId(id);
-				appsList.add(app);
+				appList.add(app);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -98,10 +98,6 @@ public class AppDAO implements DAO<App> {
 					appToUpdate.setAppname(appRead.getAppname());
 				}
 
-				if (appToUpdate.getPassword() == null || appToUpdate.getPassword().equals("")) {
-					appToUpdate.setPassword(appRead.getPassword());
-				}
-
 				if (appToUpdate.getApptype() == null || appToUpdate.getApptype().equals("")) {
 					appToUpdate.setApptype(appRead.getApptype());
 				}
@@ -109,9 +105,8 @@ public class AppDAO implements DAO<App> {
 				// Update the app
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 				preparedStatement.setString(1, appToUpdate.getAppname());
-				preparedStatement.setString(2, appToUpdate.getPassword());
-				preparedStatement.setString(3, appToUpdate.getApptype());
-				preparedStatement.setInt(4, appToUpdate.getId());
+				preparedStatement.setString(2, appToUpdate.getApptype());
+				preparedStatement.setInt(3, appToUpdate.getId());
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)
 					return true;

@@ -10,7 +10,7 @@ import it.contrader.model.App;
  * 
  * @author Vittorio
  * 
- * Implementando questa l'interfaccia converter la classe AppConverter è OBBLIGATA ad implementarne i metodi
+ * Implementando questa l'interfaccia converter la classe AppConverter ï¿½ OBBLIGATA ad implementarne i metodi
  *
  */
 public class AppConverter  implements Converter<App, AppDTO> {
@@ -20,9 +20,9 @@ public class AppConverter  implements Converter<App, AppDTO> {
 	 * Notare l'uso del metodo get() per ottenere il valore dell'attributo-
 	 */
 	@Override
-	public AppDTO toDTO(App user) {
-		AppDTO userDTO = new AppDTO(user.getId(), user.getAppname(), user.getApptype());
-		return userDTO;
+	public AppDTO toDTO(App app) {
+		AppDTO appDTO = new AppDTO(app.getId(), app.getAppname(), app.getApptype());
+		return appDTO;
 	}
 
 	/**
@@ -30,26 +30,26 @@ public class AppConverter  implements Converter<App, AppDTO> {
 	 * Notare l'uso del metodo get() per ottenere il valore dell'attributo-
 	 */
 	@Override
-	public App toEntity(AppDTO userDTO) {
-		App user = new App(userDTO.getId(), userDTO.getAppname(), userDTO.getApptype());
-		return user;
+	public App toEntity(AppDTO appDTO) {
+		App app = new App(appDTO.getId(), appDTO.getAppname(), appDTO.getApptype());
+		return app;
 	}
 	
 	/**
 	 * Metodo per convertire le liste di App.
 	 */
 	@Override
-	public List<AppDTO> toDTOList(List<App> userList) {
+	public List<AppDTO> toDTOList(List<App> appList) {
 		//Crea una lista vuota.
-		List<AppDTO> userDTOList = new ArrayList<AppDTO>();
+		List<AppDTO> appDTOList = new ArrayList<AppDTO>();
 		
 		//Cicla tutti gli elementi della lista e li converte uno a uno
-		for(App user : userList) {
+		for(App app : appList) {
 			//Utilizza il metodo toDTO per convertire ogni singolo elemento della lista
 			//e lo aggiunge adda lista di DTO
-			userDTOList.add(toDTO(user));
+			appDTOList.add(toDTO(app));
 		}
-		return userDTOList;
+		return appDTOList;
 	}
 
 	
