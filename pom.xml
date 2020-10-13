@@ -21,7 +21,7 @@
     <name>JspApp</name>
 
     <!--  The website for the project -->
-    <url>http://localhost:8080/JspApp</url>
+    <url>http://localhost:8082/JspApp</url>
 
     <!--  And now, a list of Maven projects that we depend upon -->
     <dependencies>
@@ -81,7 +81,7 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
-                    <url>http://localhost:8080/manager</url>
+                    <url>http://localhost:8082/manager</url>
                     <server>TomcatServer</server>
                     <path>/JspApp</path>
                 </configuration>

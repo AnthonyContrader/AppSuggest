@@ -1,16 +1,16 @@
 package it.contrader.converter;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import it.contrader.dto.UserDTO;
 import it.contrader.model.User;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 
  * @author Vittorio
  * 
- * Implementando questa l'interfaccia converter la classe UserConverter è OBBLIGATA ad implementarne i metodi
+ * Implementando questa l'interfaccia converter la classe UserConverter ï¿½ OBBLIGATA ad implementarne i metodi
  *
  */
 public class UserConverter  implements Converter<User, UserDTO> {

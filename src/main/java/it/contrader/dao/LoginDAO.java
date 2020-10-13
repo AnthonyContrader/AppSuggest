@@ -1,13 +1,12 @@
 package it.contrader.dao;
 
+import it.contrader.model.User;
+import it.contrader.utils.ConnectionSingleton;
+
 import java.sql.Connection;
-
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import it.contrader.utils.ConnectionSingleton;
-import it.contrader.model.User;
 
 /**
  * 

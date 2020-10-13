@@ -1,17 +1,15 @@
 package it.contrader.servlets;
 
-import java.util.List;
+import it.contrader.dto.UserDTO;
+import it.contrader.service.Service;
+import it.contrader.service.UserService;
 
-
-
-import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import it.contrader.dto.UserDTO;
-import it.contrader.service.Service;
-import it.contrader.service.UserService;
+import java.io.IOException;
+import java.util.List;
 
 /*
  * Per dettagli vedi Guida sez Servlet

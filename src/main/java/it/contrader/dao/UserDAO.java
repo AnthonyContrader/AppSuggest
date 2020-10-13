@@ -1,11 +1,11 @@
 package it.contrader.dao;
 
-import java.sql.*;
+import it.contrader.model.User;
+import it.contrader.utils.ConnectionSingleton;
 
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import it.contrader.utils.ConnectionSingleton;
-import it.contrader.model.User;
 
 /**
  * 
