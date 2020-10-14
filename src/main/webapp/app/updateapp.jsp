@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" import="java.util.List"
-	import="it.contrader.dto.AppDTO"%>
+	pageEncoding="ISO-8859-1" import="it.contrader.dto.AppDTO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,64 +16,29 @@
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <div class="main">
-	<%
-		List<AppDTO> list = (List<AppDTO>) request.getAttribute("list");
-	%>
-
-<br>
-
-	<table>
-		<tr>
-			<th>Appname</th>
-			<th>Password</th>
-			<th>Apptype</th>
-			<th></th>
-			<th></th>
-		</tr>
-		<%
-			for (AppDTO u : list) {
-		%>
-		<tr>
-			<td><a href=AppServlet?mode=read&id=<%=u.getId()%>>
-					<%=u.getAppname()%>
-			</a></td>
-			<td><%=u.getApptype()%></td>
-			<td><a href=AppServlet?mode=read&update=true&id=<%=u.getId()%>>Edit</a>
-			</td>
-			<td><a href=AppServlet?mode=delete&id=<%=u.getId()%>>Delete</a>
-			</td>
-
-		</tr>
-		<%
-			}
-		%>
-	</table>
+	<%AppDTO u = (AppDTO) request.getAttribute("dto");%>
 
 
+	<form id="floatleft" action="AppServlet?mode=update&id=<%=u.getId()%>" method="post">
+		<div class="row">
+			<div class="col-25">
+				<label for="app">Appname</label>
+			</div>
+			<div class="col-75">
+				<input type="text" id="app" name="appname" value=<%=u.getAppname()%>>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-25">
+				<label for="type">type</label>
+			</div>
+			<div class="col-75">
+				<input type="text" id="type" name="apptype" value=<%=u.getApptype()%>>
+			</div>
+		</div>
+		<button type="submit" >Edit</button>
+	</form>
 
-<form id="floatright" action="AppServlet?mode=insert" method="post">
-  <div class="row">
-    <div class="col-25">
-      <label for="app">Appname</label>
-    </div>
-    <div class="col-75">
-      <input type="text" id="app" name="appname" placeholder="inserisci appname">
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-25">
-      <label for="type">Apptype</label>
-    </div>
-   		 <div class="col-75">
- 			<select id="type" name="apptype">
-  				<option value="ADMIN">ADMIN</option>
-  				<option value="USER">USER</option>
- 
-			</select>
-    	</div>
-  </div>
-      <button type="submit" >Insert</button>
-</form>
 
 </div>
 <br>

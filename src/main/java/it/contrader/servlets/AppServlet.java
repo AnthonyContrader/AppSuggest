@@ -56,27 +56,25 @@ public class AppServlet extends HttpServlet {
 			else getServletContext().getRequestDispatcher("/app/updateapp.jsp").forward(request, response);
 			
 			break;
-/*
+
 		case "INSERT":
-			String username = request.getParameter("username").toString();
-			String password = request.getParameter("password").toString();
-			String usertype = request.getParameter("usertype").toString();
-			dto = new AppDTO (username,password,usertype);
+			String appname = request.getParameter("appname").toString();
+			String apptype = request.getParameter("apptype").toString();
+			dto = new AppDTO (appname,apptype);
 			ans = service.insert(dto);
 			request.setAttribute("ans", ans);
 			updateList(request);
-			getServletContext().getRequestDispatcher("/user/usermanager.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/app/appmanager.jsp").forward(request, response);
 			break;
 			
 		case "UPDATE":
-			username = request.getParameter("username");
-			password = request.getParameter("password");
-			usertype = request.getParameter("usertype");
+			appname = request.getParameter("appname");
+			apptype = request.getParameter("apptype");
 			id = Integer.parseInt(request.getParameter("id"));
-			dto = new AppDTO (id,username, password, usertype);
+			dto = new AppDTO (id,appname, apptype);
 			ans = service.update(dto);
 			updateList(request);
-			getServletContext().getRequestDispatcher("/user/usermanager.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/app/appmanager.jsp").forward(request, response);
 			break;
 
 		case "DELETE":
@@ -84,8 +82,8 @@ public class AppServlet extends HttpServlet {
 			ans = service.delete(id);
 			request.setAttribute("ans", ans);
 			updateList(request);
-			getServletContext().getRequestDispatcher("/user/usermanager.jsp").forward(request, response);
-			break; */
+			getServletContext().getRequestDispatcher("/app/appmanager.jsp").forward(request, response);
+			break; 
 		}
 	}
 }

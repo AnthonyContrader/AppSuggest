@@ -65,11 +65,7 @@
       <label for="type">Apptype</label>
     </div>
    		 <div class="col-75">
- 			<select id="type" name="apptype">
-  				<option value="ADMIN">ADMIN</option>
-  				<option value="USER">USER</option>
- 
-			</select>
+			 <input type="text" id="type" name="apptype" placeholder="inserisci appname">
     	</div>
   </div>
       <button type="submit" >Insert</button>
