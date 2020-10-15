@@ -15,9 +15,9 @@ import it.contrader.model.App;
  */
 public class AppDAO implements DAO<App> {
 
-	private final String QUERY_ALL = "SELECT * FROM app";
+	private final String QUERY_ALL = "SELECT app.*, apptype.* FROM app INNER JOIN apptype ON app.apptype = apptype.id";
 	private final String QUERY_CREATE = "INSERT INTO app (appname, apptype) VALUES (?,?)";
-	private final String QUERY_READ = "SELECT * FROM app WHERE id=?";
+	private final String QUERY_READ = "SELECT appname,tag FROM app,apptype where apptype.id = ?";
 	private final String QUERY_UPDATE = "UPDATE app SET appname=?, apptype=? WHERE id=?";
 	private final String QUERY_DELETE = "DELETE FROM app WHERE id=?";
 
@@ -35,7 +35,7 @@ public class AppDAO implements DAO<App> {
 			while (resultSet.next()) {
 				int id = resultSet.getInt("id");
 				String appname = resultSet.getString("appname");
-				String apptype = resultSet.getString("apptype");
+				String apptype = resultSet.getString("tag");
 				app = new App(appname, apptype);
 				app.setId(id);
 				appList.add(app);
@@ -69,11 +69,11 @@ public class AppDAO implements DAO<App> {
 			preparedStatement.setInt(1, appId);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
-			String appname, apptype;
+			String appname, tag;
 
 			appname = resultSet.getString("appname");
-			apptype = resultSet.getString("apptype");
-			App app = new App(appname, apptype);
+			tag = resultSet.getString("tag");
+			App app = new App(appname, tag);
 			app.setId(resultSet.getInt("id"));
 
 			return app;
@@ -90,7 +90,7 @@ public class AppDAO implements DAO<App> {
 		if (appToUpdate.getId() == 0)
 			return false;
 
-		App appRead = read(appToUpdate.getId());
+		App appRead = read(Integer.parseInt(appToUpdate.getApptype()));//TODO controllare
 		if (!appRead.equals(appToUpdate)) {
 			try {
 				// Fill the appToUpdate object

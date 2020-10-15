@@ -64,9 +64,17 @@
     <div class="col-25">
       <label for="type">Apptype</label>
     </div>
-   		 <div class="col-75">
-			 <input type="text" id="type" name="apptype" placeholder="inserisci appname">
-    	</div>
+	  <div class="col-75">
+		  <select id="type" name="apptype">
+			  <% for ( AppDTO u : list )
+			  {
+			  %>
+			  <option><%=u.getApptype()%></option>
+			  <%
+				  }
+			  %>
+		  </select>
+	  </div>
   </div>
       <button type="submit" >Insert</button>
 </form>
