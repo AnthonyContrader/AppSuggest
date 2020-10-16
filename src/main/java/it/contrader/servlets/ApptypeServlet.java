@@ -25,7 +25,7 @@ public class ApptypeServlet extends HttpServlet {
 	public void updateList(HttpServletRequest request) {
 		Service<ApptypeDTO> service = new ApptypeService();
 		List<ApptypeDTO>listDTO = service.getAll();
-		request.setAttribute("list", listDTO);
+		request.setAttribute("lista", listDTO);
 	}
 
 	@Override

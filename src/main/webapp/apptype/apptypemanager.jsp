@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" import="java.util.List"
-	import="it.contrader.dto.ApptypeDTO"%>
+	import="it.contrader.dto.ApptypeDTO"
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +20,7 @@
 </div>
 <div class="main">
 	<%
-		List<ApptypeDTO> list = (List<ApptypeDTO>) request.getAttribute("list");
+		List<ApptypeDTO> list = (List<ApptypeDTO>) request.getAttribute("lista");
 	%>
 
 <br>

@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" import="java.util.List"
-	import="it.contrader.dto.AppDTO"%>
+	import="it.contrader.dto.AppDTO"
+import="it.contrader.dao.ApptypeDAO"
+%>
+<%@ page import="it.contrader.model.Apptype" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -66,10 +69,13 @@
     </div>
 	  <div class="col-75">
 		  <select id="type" name="apptype">
-			  <% for ( AppDTO u : list )
+			  <%
+				  ApptypeDAO a=new ApptypeDAO();
+				  List<Apptype> b= a.getAll();
+				  for ( Apptype c :b )
 			  {
 			  %>
-			  <option><%=u.getApptype()%></option>
+			  <option value="<%=c.getId()%>"><%=c.getTag()%></option>
 			  <%
 				  }
 			  %>
