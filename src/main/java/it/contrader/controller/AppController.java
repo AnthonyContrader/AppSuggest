@@ -29,6 +29,7 @@ public class AppController {
 
 	@GetMapping("/getall")
 	public String getAll(HttpServletRequest request) {
+
 		setAll(request);
 		return "app";
 	}
@@ -43,13 +44,13 @@ public class AppController {
 	@GetMapping("/preupdate")
 	public String preUpdate(HttpServletRequest request, @RequestParam("id") long id) {
 
-		request.getSession().setAttribute("dto", service.findByAppById(id));
+		request.getSession().setAttribute("dto", service.read(id));
 		return "updateapp";
 	}
 
 	@PostMapping("/update")
 	public String update(HttpServletRequest request, @RequestParam("id") long id, @RequestParam("appname") String appname,
-			@RequestParam("apptype") String apptype) {
+			@RequestParam("apptype") Apptype apptype) {
 
 		AppDTO dto = new AppDTO();
 		dto.setId(id);
@@ -63,7 +64,7 @@ public class AppController {
 
 	@PostMapping("/insert")
 	public String insert(HttpServletRequest request, @RequestParam("appname") String appname,
-						 @RequestParam("apptype") String apptype) {
+						 @RequestParam("apptype") Apptype apptype) {
 		AppDTO dto = new AppDTO();
 		dto.setAppname(appname);
 		dto.setApptype(apptype);
@@ -74,15 +75,16 @@ public class AppController {
 
 	@GetMapping("/read")
 	public String read(HttpServletRequest request, @RequestParam("id") long id) {
-		request.getSession().setAttribute("dto", service.findByAppById(id));
+		request.getSession().setAttribute("dto", service.read(id));
 		//request.getSession().setAttribute("list", service.findByApptype());
 		return "readapp";
 	}
 
 	private void setAll(HttpServletRequest request) {
-		request.getSession().setAttribute("list", service.findByApptype());
+		request.getSession().setAttribute("list", service.getAll());
 		request.getSession().setAttribute("tag", apptypeservice.findAll());
 		//request.getSession().setAttribute("tag",apptypeservice.getAll());
 
 	}
-}
+
+	}

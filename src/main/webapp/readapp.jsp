@@ -33,7 +33,7 @@
 			<tr>
 				<td><%=u.getId()%></td>
 				<td><%=u.getAppname()%></td>
-				<td><%=u.getApptype()%></td>
+				<td><%=u.getApptype().getTag()%></td>
 			</tr>
 		</table>
 

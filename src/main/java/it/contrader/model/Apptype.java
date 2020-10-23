@@ -18,18 +18,16 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @Entity
-@Table (name = "Apptype")
+@Table(name = "apptype")
 public class Apptype {
 
   //  @Column(name="APPTYPE_ID")
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(name="id")
   private long id;
 
-    @Column(name="tag")
-    private String tag;
-
+  @Column(unique = true)
+  private String tag;
 
    // @OneToMany(mappedBy="apptype")
    // private List<App> app = new ArrayList<>();

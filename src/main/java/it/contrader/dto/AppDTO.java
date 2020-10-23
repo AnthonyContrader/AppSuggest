@@ -20,7 +20,8 @@ import java.util.List;
 public class AppDTO {
     private long id;
     private String appname;
-    private String apptype;
+  //  private int apptype_id;
+    private Apptype apptype;
   //  private String tag;
     //   private Apptype apptype_tag;
 

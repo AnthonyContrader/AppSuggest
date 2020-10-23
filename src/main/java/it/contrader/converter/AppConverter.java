@@ -23,7 +23,7 @@ public class AppConverter extends AbstractConverter<App, AppDTO> {
 	 */
 	@Override
 	public AppDTO toDTO(App app) {
-		AppDTO appDTO = new AppDTO(app.getId(), app.getAppname(), app.getApptype());
+		AppDTO appDTO = new AppDTO(app.getId(), app.getAppname(),app.getApptype());
 		return appDTO;
 	}
 
@@ -33,7 +33,7 @@ public class AppConverter extends AbstractConverter<App, AppDTO> {
 	 */
 	@Override
 	public App toEntity(AppDTO appDTO) {
-		App app = new App(appDTO.getId(), appDTO.getAppname(), appDTO.getApptype());
+		App app = new App(appDTO.getId(), appDTO.getAppname(),appDTO.getApptype());
 		return app;
 	}
 	

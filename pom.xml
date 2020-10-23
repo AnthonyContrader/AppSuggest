@@ -70,7 +70,15 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 		</dependency>
-		
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.16</version>
+			<scope>provided</scope>
+		</dependency>
+
 		<dependency>
 			<groupId>jexcelapi</groupId>
 			<artifactId>jxl</artifactId>

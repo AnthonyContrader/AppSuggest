@@ -40,7 +40,7 @@
 			<tr>
 				<td><a href="/app/read?id=<%=u.getId()%>"> <%=u.getAppname()%>
 				</a></td>
-				<td><%=u.getApptype()%></td>
+				<td><%=u.getApptype().getTag()%></td>
 				<td><a href="/app/preupdate?id=<%=u.getId()%>">Edit</a></td>
 
 
