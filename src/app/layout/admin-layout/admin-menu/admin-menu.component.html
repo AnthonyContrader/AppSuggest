@@ -20,16 +20,27 @@
                             style="margin-right: 15px"></i>General Info</a>
                 </button>
             </div>
-            <button type="button" class="menubtn" data-toggle="collapsebtn" data-target="#users"
+        <button type="button" class="menubtn" data-toggle="collapsebtn" data-target="#users"
                 (click)="userscollapse()">
-                <i class="fas fa-users" style="margin-right: 15px"></i>Users
+            <i class="fas fa-users" style="margin-right: 15px"></i>Users
+        </button>
+        <div class="collapsebtn" id="users" *ngIf="isUserCollapsed">
+            <button class="menubtn" style="padding-left: 40px; background-color: #334247;">
+                <a [routerLink]="['/admin-dashboard/users']"> <i class="fas fa-edit" style="margin-right: 10px">
+                </i> Manage Users </a>
             </button>
-            <div class="collapsebtn" id="users" *ngIf="isUserCollapsed">
-                <button class="menubtn" style="padding-left: 40px; background-color: #334247;">
-                    <a [routerLink]="['/admin-dashboard/users']"> <i class="fas fa-edit" style="margin-right: 10px">
-                        </i> Manage Users </a>
-                </button>
-            </div>
+        </div>
+
+        <button type="button" class="menubtn" data-toggle="collapsebtn" data-target="#apps"
+                (click)="appscollapse()">
+            <i class="fas fa-users" style="margin-right: 15px"></i>Apps
+        </button>
+        <div class="collapsebtn" id="apps" *ngIf="isAppCollapsed">
+            <button class="menubtn" style="padding-left: 40px; background-color: #334247;">
+                <a [routerLink]="['/admin-dashboard/apps']"> <i class="fas fa-edit" style="margin-right: 10px">
+                </i> Manage Apps </a>
+            </button>
+        </div>
             <button class="menubtn" (click)="logout()">
                 <i class="fas fa-sign-out-alt" style="margin-right: 15px"></i>Logout
             </button>

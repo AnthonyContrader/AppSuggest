@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class AdminMenuComponent implements OnInit {
 
+  isAppCollapsed = false;
   isUserCollapsed = false;
   isClientCollapsed = false;
   isAccountCollapsed = false;
@@ -29,6 +30,11 @@ export class AdminMenuComponent implements OnInit {
     } else { this.isUserCollapsed = false; }
   }
 
+  appscollapse() {
+    if (this.isAppCollapsed === false) {
+      this.isAppCollapsed = true;
+    } else { this.isAppCollapsed = false; }
+  }
   accountcollapse() {
     if (this.isAccountCollapsed === false) {
       this.isAccountCollapsed = true;

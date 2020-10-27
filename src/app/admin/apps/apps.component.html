@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10">
+      <table>
+        <tr>
+          <th>
+            Appname
+          </th>
+          <th>
+            Apptype
+          </th>
+          <th>
+            Edit
+          </th>
+          <th>
+            Appname
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <input placeholder="appname" [(ngModel)]="apptoinsert.appname">
+          </td>
+          <td>
+            <select placeholder="apptype" [(ngModel)]="apptoinsert.apptype">
+              <option *ngFor ="let a of apptypes"  [ngValue]="a">{{a.tag}}</option>
+
+
+
+
+            </select>
+          </td>
+          <td>
+            <button (click)="insert(apptoinsert)">Insert</button>
+          </td>
+          <td>
+            <button (click)="clear()">Clear</button>
+          </td>
+        </tr>
+        <tr *ngFor="let app of apps">
+          <td>
+            <input [(ngModel)]="app.appname">
+          </td>
+          <td>
+            <select [(ngModel)]="app.apptype.id"  >
+
+              <option *ngFor ="let a of apptypes" value={{a.id}}>{{a.tag}}</option>
+
+
+
+            </select>
+          </td>
+          <td>
+            <button (click)=update(app)>Save</button>
+          </td>
+          <td>
+            <button (click)="delete(app)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>
