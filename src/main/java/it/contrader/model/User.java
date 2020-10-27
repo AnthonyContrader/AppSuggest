@@ -24,7 +24,8 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class
+User {
 	
 	public enum Usertype {
 		ADMIN,
